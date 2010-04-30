@@ -1,0 +1,18 @@
+<h2><%=h @event.title %></h2>
+
+<p>
+  Calendar:<br />
+  <b><%=h @event.calendar.title %></b>
+</p>
+<p>
+  Description:<br />
+  <b><%=h @event.description %><b>
+</p>
+
+<p>
+  Date of Event:<br />
+  <b><%=h @event.start_on.strftime('%d.%m.%Y') %></b>
+</p>
+
+<%= link_to 'Edit', [:edit, @calendar, @event] %> |
+<%= link_to 'Back', calendar_path(@calendar) %>

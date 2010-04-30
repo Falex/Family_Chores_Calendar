@@ -1,0 +1,17 @@
+<% form_for([@calendar, @event]) do |f| %>
+  <p>
+    <%= f.label :title %> *<br />
+	<%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+	<%= f.text_area :description, :size => "30*6" %>
+  </p>
+  <p>
+    <%= f.label :start_on, 'Select Date of Event' %> (Default value is actual date)<br />
+	<%= f.date_select :start_on %>
+  </p>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>

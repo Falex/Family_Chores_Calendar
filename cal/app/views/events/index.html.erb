@@ -1,0 +1,13 @@
+<h2>Listing events</h2>
+
+<%= link_to 'New event', new_calendar_event_path(@calendar) %>
+
+<% for event in @events %>
+  <h3><%=h event.title %></h3>
+  <p><%=h short(event.description) %></p>
+  <p>
+    <%= link_to 'Show', [@calendar, event] %> |
+    <%= link_to 'Edit', [:edit, @calendar, event] %> |
+	<%= link_to 'Destroy', [@calendar, event], :confirm => 'Are you sure?', :method => :delete %>
+  </p>
+<% end %>

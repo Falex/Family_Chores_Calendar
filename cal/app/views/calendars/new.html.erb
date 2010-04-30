@@ -1,0 +1,7 @@
+<h2>New calendar</h2>
+
+<% form_for(@calendar) do |f| %>
+  <%= f.error_messages %>
+  <p><%= render 'form', :f => f %></p>
+  <p><%= f.submit 'Create' %></p>
+<% end %>

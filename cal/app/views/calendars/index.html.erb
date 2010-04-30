@@ -1,0 +1,19 @@
+<h2>Your calendars</h2>
+
+<div class = "box">
+  <%= will_paginate @calendars, :prev_label => "<<< previous ", :next_label => " next >>>" %>
+</div>
+
+<p>You have currently <%= pluralize(@count, "Calendar", "Calendars") %>.</p><br />
+
+
+<% for calendar in @calendars %>
+  <h3><%=h calendar.title %></h3> 
+  <p><%=h short(calendar.description) %></p>
+  <p>
+    <%= link_to 'Go to calender', calendar %> |
+    <%= link_to 'Edit Calendar', edit_calendar_path(calendar) %> |
+    <%= link_to 'Destroy Calendar', calendar, :confirm => 'Are you sure?', :method => :delete %>
+  </p>
+  (Calender has: <%= pluralize(calendar.events.count, "Event", "Events") %>)<br /><br />
+<% end %>

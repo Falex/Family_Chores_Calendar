@@ -1,0 +1,26 @@
+<h2>Your Account</h2>
+
+<p><%= link_to 'Edit Account', edit_account_path %></p>
+
+<img src="<%=h gravatar_url @user.email %>" alt="account picture" />
+
+<p>
+  Name:<br/>
+  <b><%=h @user.login %></b>
+</p>
+
+<p>
+  Email:<br/>
+  <b><%=h @user.email %></b>
+</p>
+ 
+<p>
+  Last login on:<br/>
+  <b>
+    <% if @user.last_login_at.nil? %>
+	  Welcome to your first visit! =)
+    <% else %>
+	  <%=h @user.last_login_at.strftime('%d.%m.%Y') %>
+    <% end %>
+  </b>
+</p>

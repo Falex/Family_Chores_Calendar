@@ -1,0 +1,9 @@
+<h2>Editing calendar</h2>
+
+<%= link_to 'Show Calendar', @calendar %>
+
+<% form_for(@calendar) do |f| %>
+  <%= f.error_messages %>
+  <p><%= render 'form', :f => f %></p>
+  <p><%= f.submit 'Update' %></p>
+<% end %>
