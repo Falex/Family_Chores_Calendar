@@ -1,9 +1,9 @@
 class CreateChores < ActiveRecord::Migration
   def self.up
     create_table :chores do |t|
-      t.string :title
+      t.references :calendar
+	  t.string :title
       t.string :image_url
-
       t.timestamps
     end
   end

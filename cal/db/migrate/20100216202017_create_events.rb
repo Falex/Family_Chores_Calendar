@@ -2,6 +2,7 @@ class CreateEvents < ActiveRecord::Migration
   def self.up
     create_table :events do |t|
       t.references :calendar
+	  t.references :chore
       t.string :title
 	  t.string :image
       t.text :description

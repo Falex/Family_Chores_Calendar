@@ -13,6 +13,7 @@
       <% if event.start_on.day == time.day %>
 		<li id="sortable">
 		   <%=h event.title %>
+		   <%= image_tag(event.chore.image_url) %> 
 		</li>
 	  <% end %>
     <% end %>
