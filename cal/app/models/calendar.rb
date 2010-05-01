@@ -1,6 +1,6 @@
 class Calendar < ActiveRecord::Base
   has_many :events, :dependent => :destroy
-  
+  has_many :chores
   has_and_belongs_to_many :users
   
   validates_presence_of :title
