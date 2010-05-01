@@ -1,8 +1,8 @@
 body { 
-  background-color: #616263; 
+  background-color: #FFE4E1; 
   margin-left:auto;
   margin-right:auto;
-  width: 600px;
+  width: 1000px;
   color: white; 
 }
 
@@ -20,13 +20,13 @@ width: 270px;
 h2 {
 font-style: italic;
 margin-bottom: 20px;
-border-bottom: 3px groove #70AB3F;
+border-bottom: 3px groove #800000;
 letter-spacing: 0.2em;
 padding:3px;
 }
 
 h3 {
-border-bottom:1px dotted #70AB3F;
+border-bottom:1px dotted #800000;
 }
 
 pre {
@@ -36,7 +36,7 @@ pre {
 }
 
 a { 
-color: #70AB3F; 
+color: #800000; 
 }
 
 a:hover { 
@@ -66,9 +66,10 @@ margin-bottom: 30px;
 }
 
 #titlebox {
-border:3px groove #70AB3F;
+border:3px groove #800000;
 padding:10px;
-background: transparent url(../images/clock.jpg) no-repeat scroll 0 0;
+/* background: transparent url(../images/clock.jpg) no-repeat scroll 0 0;*/
+ background-color:#800000; 
 }
 
 #current {
@@ -83,8 +84,9 @@ padding-top: 10px;
 font-style: italic !important;
 font-weight: bold;
 color: #616263;
-border: 3px groove #70AB3F;
-background: transparent url(../images/clock.jpg) no-repeat scroll 0 0;
+border: 3px groove #800000;
+/*background: transparent url(../images/clock.jpg) no-repeat scroll 0 0;*/
+background-color:#800000; 
 padding-left: 10px;
 }
 
