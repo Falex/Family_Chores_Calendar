@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
-	#t.references :family
+	t.references :family
     t.timestamps
 	
 	t.string    :family

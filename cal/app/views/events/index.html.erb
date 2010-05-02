@@ -3,7 +3,6 @@
 <%= link_to 'New event', new_calendar_event_path(@calendar) %>
 
 <% for event in @events %>
-  <h3><%=h event.title %></h3>
   <p><%=h short(event.description) %></p>
   <p>
     <%= link_to 'Show', [@calendar, event] %> |

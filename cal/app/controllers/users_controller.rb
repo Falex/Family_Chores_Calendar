@@ -7,6 +7,7 @@ class UsersController < ApplicationController
   end
   
   def create
+    @family = Family.find(:all, :conditions => ["id =?", "1"])
     @user = User.new(params[:user])
     if @user.save
       flash[:notice] = "Account registered!"
@@ -40,5 +41,10 @@ class UsersController < ApplicationController
    flash[:notice] = 'Account deleted!'
    redirect_to root_url
   end
+  
+  def load_family
+    @family = Family.find(params[:family_id])
+  end
+  
  
 end

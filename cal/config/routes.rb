@@ -4,7 +4,8 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :chores
 
   map.root :controller => 'user_sessions', :action => 'new' 
-  
+  #map.resources :calendars, :has_many => users
+  #map.resources :families, :has_many => :users
   map.resources :calendars, :has_many => :chores
   map.resources :calendars, :has_many => :events
   map.resource :account, :controller => 'users'
