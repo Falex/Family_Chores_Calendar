@@ -7,10 +7,18 @@ class UsersController < ApplicationController
   end
   
   def create
-    @family = Family.find(:all, :conditions => ["id =?", "1"])
     @user = User.new(params[:user])
+	@family = Family.find(:all, :conditions => ["title=?", @user.family])
+	if @family.empty?
+	   @family = Family.new(:title => @user.family)
+	   @family.save
+	end
+	
+	@family = Family.find(:all, :conditions => ["title=?", @user.family])
+    @user.family_id = @family[0].id
+	
     if @user.save
-      flash[:notice] = "Account registered!"
+      flash[:notice] = @family[0].id #"Account registered!"
       redirect_back_or_default account_url
     else
       render :action => :new

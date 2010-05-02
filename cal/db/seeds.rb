@@ -5,3 +5,4 @@
 #   
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Major.create(:name => 'Daley', :city => cities.first)
+chores = Chore.create([{:title => "kochen", :image_url => "kochen.jpg"},{:title => "Uhr kaufen", :image_url => "clock.jpg"}])
