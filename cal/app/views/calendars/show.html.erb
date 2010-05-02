@@ -70,7 +70,7 @@
 
 <h3>Events</h3>
 <% if @calendar.events.empty? %>
-  <p>There are no events in this calender yet!</p>
+  <p>There are no events in this calendar yet!</p>
 <% end %>
 <% unless @calendar.events.empty? %>
   <% @calendar.events.each do |event| %>
@@ -85,6 +85,10 @@
 	</p><br/>
   <% end %>
 <% end %>
+<h3>Create Chores</h3>
+<%= render :partial => @chore = Chore.new, :locals => { :button_name => 'Create'} %>
 
+<% if !@calendar.chores.empty? %>
 <h3>Create new event</h3>
 <%= render :partial => @event = Event.new, :locals => { :button_name => 'Create'}%>
+<% end %>

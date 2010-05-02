@@ -26,41 +26,7 @@ class CalendarsController < ApplicationController
 	@hashArray = Array.new()
 	t = Time.now
 
-	1.upto(calendarMaxId) do |o|
 	
-      events1 = Event.find(:all, :select => "title", :conditions => ["calendar_id = ?", o])
-      events2 = Event.find(:all, :select => "title, description, start_on, calendar_id, id", :conditions => ["calendar_id = ?", o])
-
-	  hashH = Hash.new() # Main Hash
-	
-	  if events1.empty? # calendar number ... has no events
-	    @hashArray.push(hashH) # push empty Hash
-	  else
-	    j = 0
-        loop{
-	     if events2[j].start_on.nil? || events2[j].title.nil? # do not include events without a date into calendar
-	       gru="ja"
-		 elsif events2[j].start_on.month == t.month # include only events from the actual month into calendar
-	       if hashH.has_key?(events2[j].start_on.day) # check if another event is already taking place on that date
-	         hilfe = events2[j].start_on.day
-	         x = hashH[hilfe]
-		     y = (help.link_to events2[j].title, calendar_event_path(:calendar_id => (events2[j].calendar_id), :id => events2[j].id)) 
-	         hashN = {(events2[j].start_on.day) => (x + y)} # merge events 
-	       else 
-		     input = events2[j].title
-			 input = input.gsub( /[<>(){}\/\\]/,'')
-		     hashN = {(events2[j].start_on.day) => (help.link_to input, calendar_event_path(:calendar_id => (events2[j].calendar_id), :id => events2[j].id))}
-	       end
-	       hashH.merge!(hashN)
-		 else
-	     end
-	    
-	     j+=1
-	     break if j == events1.size
-        } 
-	    @hashArray.push(hashH)
-	  end	 
-    end
 
     respond_to do |format|
       format.html # show.html.erb

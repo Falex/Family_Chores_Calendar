@@ -1,0 +1,13 @@
+<% form_for([@calendar, @chore]) do |f| %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :image_url %><br />
+    <%= f.text_field :image_url %>
+  </p>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>

@@ -3,7 +3,7 @@
   <%= form.text_field :login %>
 </p>
 <p>
-  <%= form.label :email %> (uses <%= link_to 'Gravatar', 'http://en.gravatar.com/' %> service)<br/>
+  <%= form.label :email %><br/>
   <%= form.text_field :email %>
 </p>
 <p>
@@ -14,3 +14,13 @@
   <%= form.label :password_confirmation %><br />
   <%= form.password_field :password_confirmation %>
 </p>
+<p>
+  <%= form.label :family %><br />
+  <%= form.text_field :family %>
+</p>
+<p>
+  <%= form.label :family_password, form.object.new_record? ? nil : 'Change password' %><br />
+  <%= form.password_field :family_password %>
+</p>
+
+

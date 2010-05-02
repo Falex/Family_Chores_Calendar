@@ -5,7 +5,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.root :controller => 'user_sessions', :action => 'new' 
   
-  map.resources :calendars, :has_many => :events  
+  map.resources :calendars, :has_many => :chores
+  map.resources :calendars, :has_many => :events
   map.resource :account, :controller => 'users'
   map.resources :users
   map.resource :user_session

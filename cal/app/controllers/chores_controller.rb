@@ -40,12 +40,13 @@ class ChoresController < ApplicationController
   # POST /chores
   # POST /chores.xml
   def create
-    @chore = Chore.new(params[:chore])
+    @calendar = Calendar.find(params[:calendar_id])
+    @chore = @calendar.chores.build(params[:chore])
 
     respond_to do |format|
       if @chore.save
         flash[:notice] = 'Chore was successfully created.'
-        format.html { redirect_to(@chore) }
+        format.html { redirect_to(@calendar) }
         format.xml  { render :xml => @chore, :status => :created, :location => @chore }
       else
         format.html { render :action => "new" }
@@ -81,5 +82,9 @@ class ChoresController < ApplicationController
       format.html { redirect_to(chores_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  def load_calendar
+    @calendar = Calendar.find(params[:calendar_id])
   end
 end

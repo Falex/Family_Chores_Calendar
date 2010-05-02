@@ -1,20 +1,6 @@
 <h1>Editing chore</h1>
 
-<% form_for(@chore) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :image_url %><br />
-    <%= f.text_field :image_url %>
-  </p>
-  <p>
-    <%= f.submit 'Update' %>
-  </p>
-<% end %>
-
-<%= link_to 'Show', @chore %> |
+<%= error_messages_for :chore %>
+<%= render :partial => @chore, :locals => { :button_name => "Update"} %>
 <%= link_to 'Back', chores_path %>
+<%= link_to 'Show', [@calendar, @chore] %> |

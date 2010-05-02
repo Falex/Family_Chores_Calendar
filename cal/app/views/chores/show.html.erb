@@ -1,5 +1,5 @@
 <p>
-  <b>Title:</b>
+  <b>Chore:</b>
   <%=h @chore.title %>
 </p>
 
@@ -14,5 +14,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_chore_path(@chore) %> |
-<%= link_to 'Back', chores_path %>
+<%= link_to 'Edit', [:edit, @calendar, @chore] %> |
+<%= link_to 'Back', calendars_path(@calendar) %>

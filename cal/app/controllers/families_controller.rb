@@ -1,6 +1,7 @@
 class FamiliesController < ApplicationController
   # GET /families
   # GET /families.xml
+  
   def index
     @families = Family.all
 
@@ -23,6 +24,7 @@ class FamiliesController < ApplicationController
 
   # GET /families/new
   # GET /families/new.xml
+  
   def new
     @family = Family.new
 
@@ -30,7 +32,7 @@ class FamiliesController < ApplicationController
       format.html # new.html.erb
       format.xml  { render :xml => @family }
     end
-  end
+  end 
 
   # GET /families/1/edit
   def edit
@@ -81,5 +83,5 @@ class FamiliesController < ApplicationController
       format.html { redirect_to(families_url) }
       format.xml  { head :ok }
     end
-  end
+  end  
 end
