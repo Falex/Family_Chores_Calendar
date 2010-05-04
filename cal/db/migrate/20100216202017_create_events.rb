@@ -3,6 +3,8 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.references :calendar
 	  t.references :chore
+	  t.references :user
+
 	  t.string :image
       t.text :description
       t.date :start_on

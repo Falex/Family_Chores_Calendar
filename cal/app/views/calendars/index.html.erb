@@ -4,6 +4,10 @@
   <%= will_paginate @calendars, :prev_label => "<<< previous ", :next_label => " next >>>" %>
 </div>
 
+<% if @family[0].users[0].calendars.empty? %>
+<%= link_to 'Create new calendar', new_calendar_path %> 
+<% end %>
+
 <p>You have currently <%= pluralize(@count, "Calendar", "Calendars") %>.</p><br />
 
 

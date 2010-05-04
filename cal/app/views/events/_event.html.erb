@@ -10,7 +10,12 @@
   <p>
     <%= f.label :image, 'Select Chore Type' %> <br />
 	<%= f.collection_select(:chore_id, @chores = Chore.find(:all), :id, :title) %>
-
+  </p>
+  <p>
+	<%= f.label :image, 'Select Member' %> <br />
+	<%= f.collection_select(:user_id, @users = User.find(:all), :id, :login) %>
+  </p>
+  <p>
     <%= f.submit button_name %>
   </p>
 <% end %>

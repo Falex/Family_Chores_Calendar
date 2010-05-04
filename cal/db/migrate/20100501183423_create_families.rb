@@ -2,6 +2,7 @@ class CreateFamilies < ActiveRecord::Migration
   def self.up
     create_table :families do |t|
       t.string :title
+	  t.references :calendar
 
       t.timestamps
     end

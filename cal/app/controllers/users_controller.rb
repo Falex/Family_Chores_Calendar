@@ -1,21 +1,36 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
+
   
   def new
     @user = User.new
   end
   
   def create
-    @user = User.new(params[:user])
-	@family = Family.find(:all, :conditions => ["title=?", @user.family])
+
+    
+	#@family = Family.find(:all, :conditions => ["id=?", "1"])
+	#@user = @family.users.build(params[:user])
+	
+	@user = User.new(params[:user])
+	#@family = Family.find(:all, :conditions => ["title=?", @user.family])
+	@family = Fam.find(:all, :conditions => ["title=?", @user.family])
+	
 	if @family.empty?
-	   @family = Family.new(:title => @user.family)
+	   #@family = Family.new(:title => @user.family)
+	   @family = Fam.new(:title => @user.family)
 	   @family.save
 	end
 	
-	@family = Family.find(:all, :conditions => ["title=?", @user.family])
-    @user.family_id = @family[0].id
+	@family = Fam.find(:all, :conditions => ["title=?", @user.family])
+	
+	#@user = @family.users.build(params[:user])
+	#@family = Family.find(:all, :conditions => ["title=?", @user.family])
+	
+    @user.fam_id = @family[0].id
+	
+
 	
     if @user.save
       flash[:notice] = @family[0].id #"Account registered!"
@@ -50,9 +65,5 @@ class UsersController < ApplicationController
    redirect_to root_url
   end
   
-  def load_family
-    @family = Family.find(params[:family_id])
-  end
-  
- 
+
 end

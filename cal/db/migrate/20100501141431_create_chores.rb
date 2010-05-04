@@ -1,7 +1,7 @@
 class CreateChores < ActiveRecord::Migration
   def self.up
     create_table :chores do |t|
-      t.references :calendar	:null => false
+      t.references :calendar	
 	  t.string :title
       t.string :image_url
       t.timestamps

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :load_calendar
+  #before_filter :load_user
   
   # GET /events
   # GET /events.xml
@@ -45,6 +46,8 @@ class EventsController < ApplicationController
   def create
     @calendar = Calendar.find(params[:calendar_id])
 	@event = @calendar.events.build(params[:event])
+	#@event.user_id = @current_user.id
+	
   
     #@event = Event.new(params[:event])
 
@@ -95,6 +98,10 @@ class EventsController < ApplicationController
   
   def load_calendar
     @calendar = Calendar.find(params[:calendar_id])
+  end
+  
+  def load_user
+    @user = @current_user
   end
   
 end

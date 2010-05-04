@@ -25,7 +25,11 @@
   
   <% if current_user %>
     <%= link_to 'Account', account_path %> |
-	<%= link_to 'Create new calendar', new_calendar_path %> |
+	
+	
+	<%-# link_to 'Create new calendar', new_calendar_path -%> |
+	
+	
     <%= link_to 'Logout', :controller =>  'user_sessions', :action => 'logout' %>
     <%= @message %>
   <% else %>
