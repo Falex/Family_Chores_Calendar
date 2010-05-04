@@ -1,15 +1,13 @@
-<h2>Your calendars</h2>
 
 <div class = "box">
-  <%= will_paginate @calendars, :prev_label => "<<< previous ", :next_label => " next >>>" %>
+  <%-# will_paginate @calendars, :prev_label => "<<< previous ", :next_label => " next >>>" -%>
 </div>
 
-<% if @family[0].users[0].calendars.empty? %>
+<% if @calendars.empty? %>
 <%= link_to 'Create new calendar', new_calendar_path %> 
 <% end %>
 
-<p>You have currently <%= pluralize(@count, "Calendar", "Calendars") %>.</p><br />
-
+<h2>Welcome <%=h @login = @user.login %> </h2>
 
 <% for calendar in @calendars %>
   <h3><%=h calendar.title %></h3> 

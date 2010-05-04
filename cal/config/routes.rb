@@ -1,8 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :fams, :has_many => :users
+  #map.resources :fams, :has_many => :calendars
+
   map.resources :families
 
   map.resources :chores
-
+  
   map.root :controller => 'user_sessions', :action => 'new' 
   #map.resources :calendars, :has_many => users
   #map.resources :families, :has_many => :users

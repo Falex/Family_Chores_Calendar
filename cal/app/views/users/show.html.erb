@@ -13,12 +13,27 @@
   Email:<br/>
   <b><%=h @user.email %></b>
 </p>
+
+<p>
+  Color:<br/>
+  <b><%=h @user.color %></b>
+</p>
+
+<p>
+  Stars Count:<br/>
+  <b><%=h @user.stars_count %></b>
+</p>
+
+<p>
+  Entire Stars Count:<br/>
+  <b><%=h @user.entire_stars_count %></b>
+</p>
  
 <p>
   Last login on:<br/>
   <b>
     <% if @user.last_login_at.nil? %>
-	  Welcome to your first visit! =)
+	  Welcome to your first visit! 
     <% else %>
 	  <%=h @user.last_login_at.strftime('%d.%m.%Y') %>
     <% end %>

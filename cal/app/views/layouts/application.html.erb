@@ -39,7 +39,7 @@
   
   <%= yield %>
 
-  <p id="current">Currently <%= pluralize User.logged_in.count, "user" %> logged in.</p>
+  <p id="current">Currently <%-# pluralize User.logged_in.count, "user" %> logged in.</p>
   <p id="footer">&copy;2010 by Alexandra F.</p>
 
 </body>

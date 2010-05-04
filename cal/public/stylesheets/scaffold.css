@@ -150,9 +150,7 @@ padding: 3px;
 }
 
 #chores{
-  float:right;
-  position:relative;
-  top: -900px;
+  clear:both;
 }
 
 #events{
@@ -160,5 +158,5 @@ padding: 3px;
 }
 
 li {
-background-color: #FFFFFF;
+
 }

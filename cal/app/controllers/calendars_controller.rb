@@ -6,6 +6,7 @@ class CalendarsController < ApplicationController
   # GET /calendars.xml
   def index
     #@calendars = Calendar.all
+	@login = @user.login
 	@family_id = @user.fam_id
 	@family = Fam.find(:all, :conditions => ["id=?", @family_id])
 	@calendars = @family[0].users[0].calendars.paginate ( :page => params[:page], :order => 'created_at ASC', :per_page => 3)
@@ -21,8 +22,8 @@ class CalendarsController < ApplicationController
   # GET /calendars/1
   # GET /calendars/1.xml
   def show
-    @login = @user.login
     @family_id = @user.fam_id
+	@login = @user.login
 	@family = Fam.find(:all, :conditions => ["id=?", @family_id])
     #@calendar = @user.calendars.find(params[:id])
 	@calendar = @family[0].users[0].calendars.find(params[:id])

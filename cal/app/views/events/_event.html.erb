@@ -13,7 +13,7 @@
   </p>
   <p>
 	<%= f.label :image, 'Select Member' %> <br />
-	<%= f.collection_select(:user_id, @users = User.find(:all), :id, :login) %>
+	<%= f.collection_select(:user_id, @users = User.find(:all, :conditions => ["fam_id=?", @calendar.fam_id]), :id, :login) %>
   </p>
   <p>
     <%= f.submit button_name %>

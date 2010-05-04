@@ -1,0 +1,2 @@
+module FamsHelper
+end

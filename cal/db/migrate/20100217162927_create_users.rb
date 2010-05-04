@@ -4,7 +4,10 @@ class CreateUsers < ActiveRecord::Migration
 	t.references :fam
 
     t.timestamps
-	
+	t.string	:role
+	t.string    :color
+	t.integer   :stars_count
+	t.integer   :entire_stars_count
 	t.string    :family
 	t.string    :family_password
 	t.string    :login,               :null => false                # optional, you can use email instead, or both
@@ -17,12 +20,9 @@ class CreateUsers < ActiveRecord::Migration
 
     # Magic columns, just like ActiveRecord's created_at and updated_at. These are automatically maintained by Authlogic if they are present.
     t.integer   :login_count,         :null => false, :default => 0 # optional, see Authlogic::Session::MagicColumns
-    t.integer   :failed_login_count,  :null => false, :default => 0 # optional, see Authlogic::Session::MagicColumns
-    t.datetime  :last_request_at                                    # optional, see Authlogic::Session::MagicColumns
     t.datetime  :current_login_at                                   # optional, see Authlogic::Session::MagicColumns
     t.datetime  :last_login_at                                      # optional, see Authlogic::Session::MagicColumns
-    t.string    :current_login_ip                                   # optional, see Authlogic::Session::MagicColumns
-    t.string    :last_login_ip                                      # optional, see Authlogic::Session::MagicColumns
+    
 
     end
   end

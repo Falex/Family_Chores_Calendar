@@ -5,10 +5,8 @@ class CreateEvents < ActiveRecord::Migration
 	  t.references :chore
 	  t.references :user
 
-	  t.string :image
       t.text :description
       t.date :start_on
-      t.date :stop_on
       t.datetime :updated_at
 
       t.timestamps
