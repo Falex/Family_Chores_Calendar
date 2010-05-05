@@ -1,0 +1,20 @@
+<h1> Configurations Page</h1>
+ 
+<% @users.each do |u| %>
+   <% @user2 = u %>
+   <p>
+   <%= u.login %>
+   </p>
+   <p>
+   <img src="<%=h gravatar_url u.email %>" alt="account picture" />
+   </p>
+   <%= link_to 'Edit Profile', edit_user_path(@user2) %> | <br />
+   <%= link_to 'Destroy Account', u, :confirm => 'Are you sure?', :method => :delete %>
+   
+   <% form_for @user, :url => account_path do |f| %>
+     <%= f.error_messages %>
+     
+     <%= f.submit 'Update' %>
+   <% end %>
+<% end %>
+

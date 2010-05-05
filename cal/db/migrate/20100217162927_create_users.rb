@@ -18,10 +18,10 @@ class CreateUsers < ActiveRecord::Migration
     t.string    :single_access_token, :null => false                # optional, see Authlogic::Session::Params
     t.string    :perishable_token,    :null => false                # optional, see Authlogic::Session::Perishability
 
-    # Magic columns, just like ActiveRecord's created_at and updated_at. These are automatically maintained by Authlogic if they are present.
-    t.integer   :login_count,         :null => false, :default => 0 # optional, see Authlogic::Session::MagicColumns
-    t.datetime  :current_login_at                                   # optional, see Authlogic::Session::MagicColumns
-    t.datetime  :last_login_at                                      # optional, see Authlogic::Session::MagicColumns
+    
+    t.integer   :login_count,         :null => false, :default => 0 
+    t.datetime  :current_login_at                                   
+    t.datetime  :last_login_at                                      
     
 
     end

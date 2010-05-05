@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	   #@family = Family.new(:title => @user.family)
 	   @family = Fam.new(:title => @user.family)
 	   @family.save
-	   @user.role = admin
+	   @user.role = "admin"
 	end
 	
 	@family = Fam.find(:all, :conditions => ["title=?", @user.family])
