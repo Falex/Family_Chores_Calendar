@@ -1,6 +1,7 @@
 class CalendarsController < ApplicationController
   before_filter :authenticate
   before_filter :load_user
+  filter_resource_access
 
   # GET /calendars
   # GET /calendars.xml

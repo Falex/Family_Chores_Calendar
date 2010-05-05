@@ -1,6 +1,7 @@
 class FamsController < ApplicationController
   # GET /fams
   # GET /fams.xml
+  
   def index
     @fams = Fam.all
 

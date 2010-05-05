@@ -1,4 +1,3 @@
-<h2><%=h @event.title %></h2>
 
 <p>
   Calendar:<br />
@@ -13,5 +12,7 @@
   <b><%=h @event.start_on.strftime('%d.%m.%Y') %></b>
 </p>
 
-<%= link_to 'Edit', [:edit, @calendar, @event] %> |
+<% if permitted_to? :edit, @event %>
+  <%= link_to 'Edit', [:edit, @calendar, @event] %> |
+<% end %>
 <%= link_to 'Back', calendar_path(@calendar) %>

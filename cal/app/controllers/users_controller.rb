@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 	   @family = Fam.new(:title => @user.family)
 	   @family.save
 	   @user.role = "admin"
+	else
+	   @user.role = "child"
 	end
 	
 	@family = Fam.find(:all, :conditions => ["title=?", @user.family])
@@ -29,7 +31,7 @@ class UsersController < ApplicationController
 	#@user = @family.users.build(params[:user])
 	#@family = Family.find(:all, :conditions => ["title=?", @user.family])
 	
-    @user.fam_id = @family[0].id
+    @user.fam_id = @family[0].id 
 	
 
 	

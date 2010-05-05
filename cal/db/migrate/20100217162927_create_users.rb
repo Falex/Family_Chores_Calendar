@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
 	t.references :fam
 
     t.timestamps
-	t.string	:role
+	t.string	:roles
 	t.string    :color
 	t.integer   :stars_count
 	t.integer   :entire_stars_count

@@ -1,6 +1,7 @@
 class ChoresController < ApplicationController
   # GET /chores
   # GET /chores.xml
+  filter_resource_access
   def index
     @chores = Chore.all
 

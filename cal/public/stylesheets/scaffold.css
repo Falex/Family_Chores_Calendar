@@ -160,3 +160,34 @@ padding: 3px;
 li {
 
 }
+
+#draggable { }
+	ul {float:left;
+		padding:0px;}
+	#calendar_entries li {clear:both;
+		border:2px solid #800000;
+		list-style-type:none;
+		width:80px;
+		overflow:hidden;
+		height:80px;
+		color:#800000;
+	    background-color:#FFFFFF;}}
+	li #draggable {border:2px solid #800000;
+		}
+	#calendar_grid	
+	#details {float:left;
+			  clear:both;
+			  position:relative;
+			  left:40;
+			  }
+	
+	#name_of_day{
+	   height:30px;
+	   font-family:Snap ITC;
+	   font-size: 15px;
+	}
+	
+	li{
+		margin:1px;
+		padding:5px;
+	}

@@ -1,7 +1,7 @@
 class ConfigurationsController < ApplicationController
   before_filter :authenticate
   before_filter :load_user
-
+  filter_resource_access
 
   def index
     @users = User.find(:all, :conditions => ["fam_id=?", @user.fam_id])

@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   before_filter :load_calendar
   #before_filter :load_user
+  filter_resource_access
   
   # GET /events
   # GET /events.xml

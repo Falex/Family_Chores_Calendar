@@ -14,8 +14,16 @@
   <p><%=h short(calendar.description) %></p>
   <p>
     <%= link_to 'Go to calender', calendar %> |
-    <%= link_to 'Edit Calendar', edit_calendar_path(calendar) %> |
-    <%= link_to 'Destroy Calendar', calendar, :confirm => 'Are you sure?', :method => :delete %>
+	
+	  <% if permitted_to? :edit, @calendar %>
+        <%= link_to 'Edit Calendar', edit_calendar_path(calendar) %> |
+	  <% end %>
+	
+	  <% if permitted_to? :destroy, @calendar %>
+        <%= link_to 'Destroy Calendar', calendar, :confirm => 'Are you sure?', :method => :delete %>
+	  <% end %>
+
   </p>
   (Calender has: <%= pluralize(calendar.events.count, "Event", "Events") %>)<br /><br />
 <% end %>
+

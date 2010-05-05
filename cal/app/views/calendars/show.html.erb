@@ -1,40 +1,5 @@
 <%= javascript_include_tag :defaults %>
 
-
-<style type="text/css">
-	#draggable { }
-	ul {float:left;
-		padding:0px;}
-	#calendar_entries li {clear:both;
-		border:2px solid #800000;
-		list-style-type:none;
-		width:80px;
-		overflow:hidden;
-		height:80px;
-		color:#800000;
-	    background-color:#FFFFFF;}}
-	li #draggable {border:2px solid #800000;
-		}
-	#calendar_grid	
-	#details {float:left;
-			  clear:both;
-			  position:relative;
-			  left:40;
-			  }
-	
-	#name_of_day{
-	   height:30px;
-	   font-family:Snap ITC;
-	   font-size: 15px;
-	}
-	
-	li{
-		margin:1px;
-		padding:5px;
-	}
-	</style>
-
-	
 	<script type="text/javascript">
 	$(function() {
 		$("#draggable").draggable();
@@ -43,15 +8,8 @@
 		$("#accordion").accordion({
 			collapsible: true
 		});
-
-
 	});
 	</script>
-	
-
-
-
-
 
 <h2><%=h @calendar.title %></h2>
 <h2><%= @login %></h2>
@@ -104,9 +62,7 @@
 </div>
 <div id="events">
 <h3>Events</h3>
-<% if @calendar.events.empty? %>
-  <p>There are no events in this calendar yet!</p>
-<% end %>
+
 <% unless @calendar.events.empty? %>
   <% @calendar.events.each do |event| %>
     <p>
@@ -115,16 +71,21 @@
 	</p>
 	<p>
 	  <%= link_to 'Show Event', calendar_event_path(@calendar) %> |
-	  <%= link_to 'Edit Event', edit_calendar_path(@calendar) %> |
-	  <%= link_to 'Destroy Event', [@calendar, event], :confirm => 'Are you sure?', :method => :delete %>
+	  <% if permitted_to? :edit, @event %>
+	    <%= link_to 'Edit Event', edit_calendar_path(@calendar) %> |
+	  <% end %>
+	  <% if permitted_to? :destroy, @event %>
+	    <%= link_to 'Destroy Event', [@calendar, event], :confirm => 'Are you sure?', :method => :delete %>
+	  <% end %>
 	</p><br/>
   <% end %>
 <% end %>
 </div>
 <div id="chores">
-<h3>Create Chores</h3>
-<%= render :partial => @chore = Chore.new, :locals => { :button_name => 'Create'} %>
-
+<% if permitted_to? :create, @chore %>
+  <h3>Create Chores</h3>
+  <%= render :partial => @chore = Chore.new, :locals => { :button_name => 'Create'} %>
+<% end %>
 <% if !@calendar.chores.empty? %>
 <h3>Create new event</h3>
 <%= render :partial => @event = Event.new, :locals => { :button_name => 'Create'}%>
