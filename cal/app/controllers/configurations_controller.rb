@@ -24,6 +24,16 @@ class ConfigurationsController < ApplicationController
     end
   end
   
+  def update
+    @user = @current_user
+    if @user.update_attributes(params[:user])
+      flash[:notice] = "Account updated!"
+      redirect_to account_url
+    else
+      render :action => :edit
+    end
+  end
+  
   def load_user
     @user = @current_user
   end

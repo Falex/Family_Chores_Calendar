@@ -8,11 +8,13 @@
    <p>
    <img src="<%=h gravatar_url u.email %>" alt="account picture" />
    </p>
-   <%= link_to 'Edit Profile', edit_user_path(@user2) %> | <br />
    <%= link_to 'Destroy Account', u, :confirm => 'Are you sure?', :method => :delete %>
    
-   <% form_for @user, :url => account_path do |f| %>
+   <% form_for u do |f| %>
      <%= f.error_messages %>
+	 
+	  Child <%= f.radio_button :roles, 'child', :checked => true %> <br />
+      Parent <%= f.radio_button :roles, 'parent' %> <br />
      
      <%= f.submit 'Update' %>
    <% end %>

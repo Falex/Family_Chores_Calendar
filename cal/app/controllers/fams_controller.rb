@@ -1,7 +1,7 @@
 class FamsController < ApplicationController
   # GET /fams
   # GET /fams.xml
-  
+  filter_resource_access
   def index
     @fams = Fam.all
 

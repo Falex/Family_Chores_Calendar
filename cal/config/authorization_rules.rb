@@ -14,7 +14,7 @@ authorization do
 	role :admin do
 	  includes :parent
 	  has_permission_on :users, :to => [:destroy, :edit, :update]
-	  has_permission_on :configurations, :to => [:index, :show]
+	  has_permission_on :configurations, :to => [:index, :show, :update]
 	end
 end
 

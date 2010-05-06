@@ -10,7 +10,8 @@ class CalendarsController < ApplicationController
 	@login = @user.login
 	@family_id = @user.fam_id
 	@family = Fam.find(:all, :conditions => ["id=?", @family_id])
-	@calendars = @family[0].users[0].calendars.paginate ( :page => params[:page], :order => 'created_at ASC', :per_page => 3)
+	@calendars = @family[0].users[0].calendars
+	#@calendars = @user.calendars
 	@user_session = params[:user_session]
 	@count = @user.calendars.count
 
