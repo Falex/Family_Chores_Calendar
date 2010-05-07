@@ -11,36 +11,29 @@
 <body>
 
   <div id="titlebox">
-    <% if current_user %>
-      <h1><%= link_to 'Family Calendar', account_path, :class => 'title' %></h1>
-	<% else %>
-	  <h1><%= link_to 'Family Calendar', new_user_session_path, :class => 'title' %></h1>
-	<% end %>
+        <h1>Family Calendar</h1>
   </div>
   
   <p id="notice" ><%= flash[:notice] %></p>
-
   <%= link_to 'Home', calendars_path %> |
   
+  <% if permitted_to? :index, :configuration %>
+    <%= link_to 'Configurations', :controller => 'configurations', :action => 'index' %> |
+  <% end %>
   
   <% if current_user %>
     <%= link_to 'Account', account_path %> |
-	
-	
-	<%-# link_to 'Create new calendar', new_calendar_path -%> |
-	
-	
-    <%= link_to 'Logout', :controller =>  'user_sessions', :action => 'logout' %>
+    <%= link_to 'Logout', :controller =>  'user_sessions', :action => 'logout' %> |
     <%= @message %>
   <% else %>
-    <%= link_to 'Login', :controller =>  'user_sessions', :action => 'new' %> |
+    <%= link_to 'Login', :controller =>  'user_sessions', :action => 'new' %> | 
 	<%= link_to 'Sign up', :controller =>  'users', :action => 'new' %>
   <% end %>
   
   <%= yield %>
-
-  <p id="current">Currently <%-# pluralize User.logged_in.count, "user" %> logged in.</p>
+  
   <p id="footer">&copy;2010 by Alexandra F.</p>
 
 </body>
 </html>
+

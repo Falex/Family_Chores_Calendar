@@ -15,7 +15,14 @@
 	<%= f.label :image, 'Select Member' %> <br />
 	<%= f.collection_select(:user_id, @users = User.find(:all, :conditions => ["fam_id=?", @calendar.fam_id]), :id, :login) %>
   </p>
+  <%= f.label :finished %><br />
+    <%= f.select "finished", options_for_select([["stars"], 
+                  ["good"], "not done"], 
+                 ["20", "30"]), {:multiple => false} %>
   <p>
     <%= f.submit button_name %>
   </p>
 <% end %>
+
+<%= select_tag "test", 
+               

@@ -1,6 +1,7 @@
 class Calendar < ActiveRecord::Base
   has_many :events, :dependent => :destroy
   has_many :chores, :dependent => :destroy
+  has_many :rewards
   #has_many :users
   #belongs_to :users
   belongs_to :fam

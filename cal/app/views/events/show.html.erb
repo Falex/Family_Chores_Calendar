@@ -1,7 +1,3 @@
-
-<p>
-  Calendar:<br />
-</p>
 <p>
   Description:<br />
   <b><%=h @event.description %><b>
@@ -10,6 +6,21 @@
 <p>
   Date of Event:<br />
   <b><%=h @event.start_on.strftime('%d.%m.%Y') %></b>
+</p>
+
+<p>
+  Chore type:<br />
+  <b><%=h @event.chore.title %></b>
+</p>
+
+<p>
+  Status:<br />
+  <b><%=h @event.finished %></b>
+</p>
+
+<p>
+  Has to be done by:<br />
+  <b><%=h @event.user.login %></b>
 </p>
 
 <% if permitted_to? :edit, @event %>

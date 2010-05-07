@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_filter :require_no_user, :only => [:new, :create]
   before_filter :require_user, :only => [:show, :edit, :update]
-
+  
   
   def new
     @user = User.new
@@ -48,14 +48,24 @@ class UsersController < ApplicationController
   end
  
   def edit
-    @user = @current_user
+    if @current_user.roles == "admin"
+	  @user = User.find(params[:id], :conditions => ["fam_id=?", @current_user.fam_id])
+	else
+	  @user = User.find(params[:id])
+	end
+   
   end
   
   def update
-    @user = @current_user
+    if @current_user.roles == "admin"
+	   @user = User.find(params[:id], :conditions => ["fam_id=?", @current_user.fam_id])
+	else
+      @user = @current_user
+	end
     if @user.update_attributes(params[:user])
       flash[:notice] = "Account updated!"
       redirect_to account_url
+	 
     else
       render :action => :edit
     end

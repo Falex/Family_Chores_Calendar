@@ -1,6 +1,6 @@
 <h2>Your Account</h2>
 
-<p><%= link_to 'Edit Account', edit_account_path %></p>
+<p><%= link_to 'Edit Account', [:edit, @user] %></p>
 
 <img src="<%=h gravatar_url @user.email %>" alt="account picture" />
 

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter { |c| Authorization.current_user = c.current_user }
   
+  
   public
    def current_user
       return @current_user if defined?(@current_user)

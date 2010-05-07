@@ -18,17 +18,17 @@ margin:auto;
 
 }
 
+h3{
+color:black;
+}
+
 h2 {
 
 margin-bottom: 20px;
 border-bottom: 3px groove #800000;
-letter-spacing: 0.2em;
-padding:3px;
+padding:5px;
 }
 
-h3 {
-border-bottom:1px dotted #800000;
-}
 
 pre {
   background-color: #eee;
@@ -68,9 +68,8 @@ margin-bottom: 30px;
 
 #titlebox {
 border:3px groove #800000;
-padding:10px;
-/* background: transparent url(../images/clock.jpg) no-repeat scroll 0 0;*/
- background-color:#800000;
+padding:40px;
+background-color:#800000;
 font-family:Snap ITC; 
 font-size: 20px;
 color: #FFFFFF;
@@ -86,13 +85,10 @@ padding-top: 10px;
 }
 
 #footer {
-font-style: italic !important;
-font-weight: bold;
-color: #616263;
+color: #FFFFFF;
 border: 3px groove #800000;
-/*background: transparent url(../images/clock.jpg) no-repeat scroll 0 0;*/
 background-color:#800000; 
-padding-left: 10px;
+text-align:center;
 }
 
 #errorExplanation {

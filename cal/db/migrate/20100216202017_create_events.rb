@@ -4,7 +4,8 @@ class CreateEvents < ActiveRecord::Migration
       t.references :calendar
 	  t.references :chore
 	  t.references :user
-
+	  
+	  t.string :finished
       t.text :description
       t.date :start_on
       t.datetime :updated_at

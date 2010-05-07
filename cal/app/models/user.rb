@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :fam
   has_many :calendars
   has_many :events, :through => :calendars
+  has_and_belongs_to_many :rewards
   
   #attr_accessible :login, :email, :id, :password, :password_confirmation, :role
   
