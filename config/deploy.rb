@@ -42,3 +42,9 @@ default_run_options[:pty] = true
      run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
    end
  end
+ 
+ task :copy_config do
+  run "cp  #{deploy_to}/shared/config/database.yml #{release_path}/config/"
+end
+
+after "deploy:update_code", :copy_config
