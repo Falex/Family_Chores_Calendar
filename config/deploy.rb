@@ -9,7 +9,7 @@ role :app, "spock.fh-salzburg.ac.at"                      # This may be the same
 role :db,  "spock.fh-salzburg.ac.at", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
-set :deploy_to, "/var/www/virthosts/pink.multimediatechnology.at/term4/QPT2b"
+set :deploy_to, "/var/www/virthosts/pink.multimediatechnology.at/term4/QPT2b/"
 set :user, "fhs30412"
 
 set :use_sudo, false
