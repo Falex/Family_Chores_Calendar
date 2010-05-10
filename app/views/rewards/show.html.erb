@@ -1,0 +1,12 @@
+<p>
+  <b>Title:</b>
+  <%=h @reward.title %><br />
+</p>
+<p>
+  Points <br />
+  <%=h @reward.points %>
+</p>
+
+
+<%= link_to 'Edit', [:edit, @calendar, @reward] %> |
+<%= link_to 'Back', rewards_path(@calendar) %>

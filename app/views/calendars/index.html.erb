@@ -1,0 +1,29 @@
+
+<div class = "box">
+  <%-# will_paginate @calendars, :prev_label => "<<< previous ", :next_label => " next >>>" -%>
+</div>
+
+<% if @calendars.empty? %>
+<%= link_to 'Create new calendar', new_calendar_path %> 
+<% end %>
+
+<h2>Welcome <%=h @login = @user.login %> </h2>
+
+<% for calendar in @calendars %>
+  <h3><%=h calendar.title %></h3> 
+  <p><%=h short(calendar.description) %></p>
+  <p>
+    <%= link_to 'Go to calender', calendar %> |
+	
+	  <% if permitted_to? :edit, @calendar %>
+        <%= link_to 'Edit Calendar', edit_calendar_path(calendar) %> |
+	  <% end %>
+	
+	  <% if permitted_to? :destroy, @calendar %>
+        <%= link_to 'Destroy Calendar', calendar, :confirm => 'Are you sure?', :method => :delete %>
+	  <% end %>
+
+  </p>
+  (Calender has: <%= pluralize(calendar.events.count, "Event", "Events") %>)<br /><br />
+<% end %>
+

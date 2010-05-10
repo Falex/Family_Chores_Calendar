@@ -1,0 +1,28 @@
+<% form_for([@calendar, @event]) do |f| %>
+  <p>
+    <%= f.label :description %><br />
+	<%= f.text_area :description, :size => "30*6" %>
+  </p>
+  <p>
+    <%= f.label :start_on, 'Select Date of Event' %> <br />
+	<%= f.date_select :start_on %>
+  </p>
+  <p>
+    <%= f.label :image, 'Select Chore Type' %> <br />
+	<%= f.collection_select(:chore_id, @chores = Chore.find(:all), :id, :title) %>
+  </p>
+  <p>
+	<%= f.label :image, 'Select Member' %> <br />
+	<%= f.collection_select(:user_id, @users = User.find(:all, :conditions => ["fam_id=?", @calendar.fam_id]), :id, :login) %>
+  </p>
+  <%= f.label :finished %><br />
+    <%= f.select "finished", options_for_select([["stars"], 
+                  ["good"], "not done"], 
+                 ["20", "30"]), {:multiple => false} %>
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %>
+
+
+               

@@ -1,0 +1,97 @@
+
+	<script type="text/javascript">
+	$(function() {
+		$("#draggable").draggable();
+		$("#sortable").sortable();
+		$("#sortable").disableSelection();
+		$("#accordion").accordion({
+			collapsible: true
+		});
+	});
+	</script>
+
+<h2><%=h @calendar.title %></h2>
+<h2><%= @login %></h2>
+<h3>Details</h3>
+<p>
+  <i>Description:</i><br/>
+  <%=h @calendar.description %>
+</p>
+<p>
+  <i>Last Calender Update On:</i><br/>
+  <%=h @calendar.updated_at.strftime('%d.%m.%Y') %>
+</p>
+
+
+<div id="calendar_grid">
+<% 7.times  do |x|%>
+<ul id ="calendar_entries">
+  <% time = Time.now.beginning_of_week + x * 86400%>
+  <li id="name_of_day">
+    <%= time.strftime("%d") %>
+	<br />
+	<%= time.strftime("%A") %>
+  </li>
+
+  <% unless @calendar.events.empty? %>
+    <% @calendar.events.each do |event| %>
+      <% if event.start_on.day == time.day %>
+		<li id="sortable">
+		   <%=h event.description %><br/>
+		   <%=h event.user.login %>
+		   <%= image_tag(event.chore.image_url) %> 
+		</li>
+	  <% end %>
+    <% end %>
+  <% end %>
+</ul>
+<% end %>
+</div>
+
+<div id="details">
+<div id="members">
+<% @id = @calendar.id %>
+<h3>Members</h3>
+<ul>
+<% @family.each do |member|%>
+<li>
+<%= member.login %>
+</li>
+<% end %>
+</ul>
+</div>
+<div id="events">
+<h3>Events</h3>
+
+<% unless @calendar.events.empty? %>
+  <% @calendar.events.each do |event| %>
+    <p>
+	  <%=h event.description %><br/>
+      <%=h event.start_on.strftime('%d.%m.%Y') %>
+	</p>
+	<p>
+	  <%= link_to 'Show Event', [@calendar, event] %> |
+	  <% if permitted_to? :edit, @event %>
+	    <%= link_to 'Edit Event', [:edit, @calendar, event] %> |
+	  <% end %>
+	  <% if permitted_to? :destroy, @event %>
+	    <%= link_to 'Destroy Event', [@calendar, event], :confirm => 'Are you sure?', :method => :delete %>
+	  <% end %>
+
+	</p><br/>
+  <% end %>
+<% end %>
+</div>
+<div id="chores">
+<% if permitted_to? :create, @chore %>
+  <h3>Create Chores</h3>
+  <%= render :partial => @chore = Chore.new, :locals => { :button_name => 'Create'} %>
+<% end %>
+<% if !@calendar.chores.empty? %>
+<h3>Create new event</h3>
+<%= render :partial => @event = Event.new, :locals => { :button_name => 'Create'}%>
+<% end %>
+</div>
+<h3>Create Rewards</h3>
+<%= render :partial => @reward = Reward.new, :locals => { :button_name => 'Create'}%>
+</div>
