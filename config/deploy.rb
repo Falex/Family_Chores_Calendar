@@ -4,9 +4,9 @@ set :repository,  "git@github.com:Falex/Family_Chores_Calendar.git " #git://gith
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "spock.fh-salzburg.ac.at"                          # Your HTTP server, Apache/etc
-role :app, "spock.fh-salzburg.ac.at"                      # This may be the same as your `Web` server
-role :db,  "spock.fh-salzburg.ac.at", :primary => true # This is where Rails migrations will run
+role :web, "multimediaart.at"                          # Your HTTP server, Apache/etc
+role :app, "multimediaart.at"                      # This may be the same as your `Web` server
+role :db,  "multimediaart.at", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 set :deploy_to, "/var/www/virthosts/pink.multimediatechnology.at/term4/QPT2b/"
