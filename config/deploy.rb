@@ -1,5 +1,5 @@
 set :application, "FamilyChores"
-set :repository,  "git@github.com:Falex/Family_Chores_Calendar." #git://github.com/Falex/Family_Chores_Calendar.git"
+set :repository,  "ssh: git@github.com:Falex/Family_Chores_Calendar.git" #git://github.com/Falex/Family_Chores_Calendar.git"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
@@ -43,8 +43,8 @@ default_run_options[:pty] = true
    end
  end
  
- task :copy_config do
-  run "cp  #{deploy_to}/shared/config/database.yml #{release_path}/config/"
-end
+ #task :copy_config do
+ # run "cp  #{deploy_to}/shared/config/database.yml #{release_path}/config/"
+#end
 
-after "deploy:update_code", :copy_config
+#after "deploy:update_code", :copy_config
